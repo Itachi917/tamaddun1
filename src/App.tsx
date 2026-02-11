@@ -11,6 +11,7 @@ import WaterDashboard from "./pages/WaterDashboard";
 import ElectricityDashboard from "./pages/ElectricityDashboard";
 import ConstructionDashboard from "./pages/ConstructionDashboard";
 import ChatHub from "./pages/ChatHub";
+import { ModeToggle } from "@/components/mode-toggle";
 
 const queryClient = new QueryClient();
 
