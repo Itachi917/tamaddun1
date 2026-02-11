@@ -7,6 +7,7 @@ export function LanguageToggle() {
   return (
     <Button 
       variant="ghost" 
+      size="sm"
       onClick={() => setLanguage(lang === "en" ? "ar" : "en")}
       className="font-bold text-primary"
     >
