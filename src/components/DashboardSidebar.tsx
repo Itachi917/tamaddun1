@@ -37,14 +37,41 @@ export function DashboardSidebar() {
         <SidebarGroup>
           <SidebarGroupLabel>Dashboard</SidebarGroupLabel>
           <SidebarGroupContent>
+            {/* --- GROUP 1: STAFF PORTAL --- */}
+        <SidebarGroup>
+          <SidebarGroupLabel>Staff Portal</SidebarGroupLabel>
+          <SidebarGroupContent>
             <SidebarMenu>
-              {navItems.map((item) => (
+              {staffItems.map((item) => (
                 <SidebarMenuItem key={item.title}>
                   <SidebarMenuButton asChild tooltip={item.title}>
                     <NavLink
                       to={item.url}
                       end={item.url === "/dashboard"}
-                      className="hover:bg-sidebar-accent"
+                      className="hover:bg-sidebar-accent flex items-center gap-2"
+                      activeClassName="bg-sidebar-accent text-sidebar-primary font-medium"
+                    >
+                      <item.icon className="h-4 w-4" />
+                      <span>{item.title}</span>
+                    </NavLink>
+                  </SidebarMenuButton>
+                </SidebarMenuItem>
+              ))}
+            </SidebarMenu>
+          </SidebarGroupContent>
+        </SidebarGroup>
+
+        {/* --- GROUP 2: CUSTOMER PORTAL --- */}
+        <SidebarGroup>
+          <SidebarGroupLabel>Customer Portal</SidebarGroupLabel>
+          <SidebarGroupContent>
+            <SidebarMenu>
+              {customerItems.map((item) => (
+                <SidebarMenuItem key={item.title}>
+                  <SidebarMenuButton asChild tooltip={item.title}>
+                    <NavLink
+                      to={item.url}
+                      className="hover:bg-sidebar-accent flex items-center gap-2"
                       activeClassName="bg-sidebar-accent text-sidebar-primary font-medium"
                     >
                       <item.icon className="h-4 w-4" />
