@@ -23,25 +23,29 @@ export default {
         ring: "hsl(var(--ring))",
         background: "hsl(var(--background))",
         foreground: "hsl(var(--foreground))",
+        
+        // --- CUSTOM BRAND COLORS START ---
         primary: {
-          DEFAULT: "hsl(var(--primary))",
-          foreground: "hsl(var(--primary-foreground))",
+          DEFAULT: "#f7c021", // Yellow
+          foreground: "#343248", // Grey text (High contrast on yellow)
         },
         secondary: {
-          DEFAULT: "hsl(var(--secondary))",
-          foreground: "hsl(var(--secondary-foreground))",
+          DEFAULT: "#343248", // Grey
+          foreground: "#ffffff", // White text
+        },
+        accent: {
+          DEFAULT: "#651327", // Maroon
+          foreground: "#ffffff",
         },
         destructive: {
-          DEFAULT: "hsl(var(--destructive))",
-          foreground: "hsl(var(--destructive-foreground))",
+          DEFAULT: "#651327", // Maroon (Using maroon for destructive/alert too)
+          foreground: "#ffffff",
         },
+        // --- CUSTOM BRAND COLORS END ---
+
         muted: {
           DEFAULT: "hsl(var(--muted))",
           foreground: "hsl(var(--muted-foreground))",
-        },
-        accent: {
-          DEFAULT: "hsl(var(--accent))",
-          foreground: "hsl(var(--accent-foreground))",
         },
         popover: {
           DEFAULT: "hsl(var(--popover))",
@@ -52,12 +56,12 @@ export default {
           foreground: "hsl(var(--card-foreground))",
         },
         sidebar: {
-          DEFAULT: "hsl(var(--sidebar-background))",
-          foreground: "hsl(var(--sidebar-foreground))",
-          primary: "hsl(var(--sidebar-primary))",
-          "primary-foreground": "hsl(var(--sidebar-primary-foreground))",
-          accent: "hsl(var(--sidebar-accent))",
-          "accent-foreground": "hsl(var(--sidebar-accent-foreground))",
+          DEFAULT: "#343248", // Set Sidebar background to your Grey
+          foreground: "#ffffff", // Sidebar text white
+          primary: "#f7c021", // Sidebar active item yellow
+          "primary-foreground": "#343248",
+          accent: "#651327", // Sidebar hover maroon
+          "accent-foreground": "#ffffff",
           border: "hsl(var(--sidebar-border))",
           ring: "hsl(var(--sidebar-ring))",
         },
