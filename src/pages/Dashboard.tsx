@@ -1,11 +1,11 @@
 import { Outlet } from "react-router-dom";
 import { SidebarProvider, SidebarTrigger } from "@/components/ui/sidebar";
 import { DashboardSidebar } from "@/components/DashboardSidebar";
-
-const { lang } = useLanguage();
-const t = translations[lang] || translations.en;
+import { useLanguage } from "@/components/language-provider";
 
 const Dashboard = () => {
+  const { lang } = useLanguage(); // Correct placement
+
   return (
     <SidebarProvider>
       <div className="flex min-h-screen w-full">
