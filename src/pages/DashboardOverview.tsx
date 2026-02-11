@@ -5,6 +5,9 @@ import { motion } from "framer-motion";
 import { useLanguage } from "@/components/language-provider";
 import { translations } from "@/lib/translations";
 
+const { lang } = useLanguage();
+const t = translations[lang] || translations.en;
+
 const fadeUp = {
   hidden: { opacity: 0, y: 20 },
   visible: (i: number) => ({ opacity: 1, y: 0, transition: { delay: i * 0.1, duration: 0.5 } }),
