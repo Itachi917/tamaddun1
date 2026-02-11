@@ -5,58 +5,57 @@
 @tailwind utilities;
 
 @layer base {
-  :root {
-    /* --- LIGHT MODE (High-Contrast "Lighter" Theme) --- */
-    /* Background: Pure White */
-    --background: 0 0% 100%;
-    /* Text: Your Brand Grey #343248 */
-    --foreground: 245 18% 24%;
+ :root {
+  /* --- LIGHT MODE (High-Contrast & Perfectly Visible) --- */
+  --background: 0 0% 100%;
+  
+  /* Text: Changed from #343248 to a deeper #1a1926 (Nearly Black) */
+  --foreground: 245 20% 12%; 
 
-    /* Cards & Popovers: Clean white with very subtle borders */
-    --card: 0 0% 100%;
-    --card-foreground: 245 18% 24%;
-    --popover: 0 0% 100%;
-    --popover-foreground: 245 18% 24%;
+  --card: 0 0% 100%;
+  --card-foreground: 245 20% 12%;
 
-    /* Primary: Clean Gold (Darkened yellow for contrast on white) */
-    --primary: 45 93% 45%; 
-    --primary-foreground: 0 0% 100%;
+  --popover: 0 0% 100%;
+  --popover-foreground: 245 20% 12%;
 
-    /* Secondary: Deep Maroon */
-    --secondary: 345 68% 24%;
-    --secondary-foreground: 0 0% 100%;
+  /* Primary: Darkened the Yellow slightly so it stays visible on white */
+  --primary: 45 93% 40%; 
+  --primary-foreground: 0 0% 100%;
 
-    /* Muted: Very light grey-wash */
-    --muted: 240 5% 96%;
-    --muted-foreground: 240 4% 45%;
+  /* Secondary: Deepened the Maroon for better focus */
+  --secondary: 345 68% 20%;
+  --secondary-foreground: 0 0% 100%;
 
-    /* Accent: Very light yellow glow */
-    --accent: 45 93% 96%;
-    --accent-foreground: 345 68% 24%;
+  /* Muted Text: Made it significantly darker (45% darkness instead of 70%) */
+  --muted: 240 5% 94%;
+  --muted-foreground: 245 10% 30%;
 
-    --destructive: 0 84% 60%;
-    --destructive-foreground: 0 0% 98%;
+  --accent: 45 93% 94%;
+  --accent-foreground: 345 68% 20%;
 
-    /* Borders: Soft grey */
-    --border: 240 6% 92%;
-    --input: 240 6% 92%;
-    --ring: 45 93% 45%;
+  --destructive: 0 84% 50%;
+  --destructive-foreground: 0 0% 98%;
 
-    --radius: 0.75rem;
+  /* Borders: Slightly darker so you can see card edges better */
+  --border: 240 6% 85%;
+  --input: 240 6% 85%;
+  --ring: 45 93% 40%;
 
-    /* Sidebar Light Mode: Airy and clean */
-    --sidebar-background: 0 0% 100%;
-    --sidebar-foreground: 245 18% 24%;
-    --sidebar-primary: 45 93% 45%;
-    --sidebar-primary-foreground: 0 0% 100%;
-    --sidebar-accent: 240 5% 96%;
-    --sidebar-accent-foreground: 345 68% 24%;
-    --sidebar-border: 240 6% 94%;
-    --sidebar-ring: 45 93% 45%;
+  --radius: 0.75rem;
 
-    /* Gradients: Lighter/Softer versions */
-    --gradient-hero: linear-gradient(135deg, hsl(0 0% 100%), hsl(240 5% 98%), hsl(45 93% 92%));
-  }
+  /* Sidebar Light Mode: More defined text and icons */
+  --sidebar-background: 0 0% 98%;
+  --sidebar-foreground: 245 20% 12%;
+  --sidebar-primary: 45 93% 40%;
+  --sidebar-primary-foreground: 0 0% 100%;
+  --sidebar-accent: 240 5% 92%;
+  --sidebar-accent-foreground: 345 68% 20%;
+  --sidebar-border: 240 6% 88%;
+  --sidebar-ring: 45 93% 40%;
+
+  /* Hero Gradient: Added a bit more "depth" to the grey */
+  --gradient-hero: linear-gradient(135deg, hsl(0 0% 100%), hsl(240 5% 96%), hsl(45 93% 90%));
+}
 
   .dark {
     /* --- DARK MODE (Your Default Brand Theme) --- */
