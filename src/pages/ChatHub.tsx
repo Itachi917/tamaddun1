@@ -13,6 +13,9 @@ const presetQuestions = [
   { label: "Construction readiness", icon: <HardHat className="h-4 w-4" />, question: "Is the land in Al-Noor District ready for construction?" },
 ];
 
+const { lang } = useLanguage();
+const t = translations[lang] || translations.en;
+
 const botResponses: Record<string, string> = {
   "There's a water leak in my neighborhood. Can you help?":
     "🔍 **Leak Analysis — Your Area**\n\nI've detected a pressure anomaly in your district. Here's what I found:\n\n• **Location:** District 7, Zone B3\n• **Pressure Drop:** 15% below normal\n• **Estimated Leak Rate:** 2.3 L/min\n• **Status:** Maintenance crew dispatched\n• **ETA:** 45 minutes\n\nI'll notify you once the repair is complete.",
