@@ -68,15 +68,17 @@ const Index = () => {
         <div className="container mx-auto flex h-16 items-center justify-between px-4">
           <Link to="/" className="flex items-center gap-2">
             {/* --- LOGO IMAGE --- */}
-            <div className="flex h-8 w-8 shrink-0 items-center justify-center overflow-hidden rounded-lg">
-              <img 
-                src="/logo.png" 
-                alt="Tamaddun Logo" 
-                className="h-full w-full object-contain" 
-              />
-            </div>
-            <span className="font-display text-xl font-bold">Tamaddun Test</span>
-          </Link>
+            {/* Navbar Logo Section */}
+            <Link to="/" className="flex items-center gap-2">
+              <div className="flex h-8 w-8 shrink-0 items-center justify-center overflow-hidden rounded-lg">
+                <img 
+                  src="/logo.png" 
+                  alt="Tamaddun Logo" 
+                  className="h-full w-full object-contain" 
+                />
+              </div>
+              <span className="font-display text-xl font-bold">Tamaddun</span>
+            </Link>
           <div className="hidden items-center gap-8 md:flex">
             <a href="#services" className="text-sm text-muted-foreground transition-colors hover:text-foreground">Services</a>
             <a href="#how-it-works" className="text-sm text-muted-foreground transition-colors hover:text-foreground">How It Works</a>
@@ -260,15 +262,17 @@ const Index = () => {
           <div className="flex flex-col items-center justify-between gap-6 md:flex-row">
             <div className="flex items-center gap-2">
               {/* --- FOOTER LOGO IMAGE --- */}
-              <div className="flex h-8 w-8 items-center justify-center overflow-hidden rounded-lg">
-                <img 
-                  src="/logo.png" 
-                  alt="Tamaddun Logo" 
-                  className="h-full w-full object-contain" 
-                />
+              {/* Footer Logo Section */}
+              <div className="flex items-center gap-2">
+                <div className="flex h-8 w-8 shrink-0 items-center justify-center overflow-hidden rounded-lg">
+                  <img 
+                    src="/logo.png" 
+                    alt="Tamaddun Logo" 
+                    className="h-full w-full object-contain" 
+                  />
+                </div>
+                <span className="font-display text-lg font-bold">Tamaddun</span>
               </div>
-              <span className="font-display text-lg font-bold text-white">Tamaddun</span>
-            </div>
             <p className="text-sm text-muted-foreground">© 2026 Tamaddun. Building Smarter Cities.</p>
           </div>
         </div>
