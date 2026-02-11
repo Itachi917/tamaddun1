@@ -24,24 +24,24 @@ export default {
         background: "hsl(var(--background))",
         foreground: "hsl(var(--foreground))",
         
-        // --- CUSTOM BRAND COLORS START ---
+        // --- UPDATED: Points to index.css variables ---
         primary: {
-          DEFAULT: "#f7c021", // Yellow
-          foreground: "#343248", // Grey text (High contrast on yellow)
+          DEFAULT: "hsl(var(--primary))",
+          foreground: "hsl(var(--primary-foreground))",
         },
         secondary: {
-          DEFAULT: "#343248", // Grey
-          foreground: "#ffffff", // White text
+          DEFAULT: "hsl(var(--secondary))",
+          foreground: "hsl(var(--secondary-foreground))",
         },
         accent: {
-          DEFAULT: "#651327", // Maroon
-          foreground: "#ffffff",
+          DEFAULT: "hsl(var(--accent))",
+          foreground: "hsl(var(--accent-foreground))",
         },
         destructive: {
-          DEFAULT: "#651327", // Maroon (Using maroon for destructive/alert too)
-          foreground: "#ffffff",
+          DEFAULT: "hsl(var(--destructive))",
+          foreground: "hsl(var(--destructive-foreground))",
         },
-        // --- CUSTOM BRAND COLORS END ---
+        // ----------------------------------------------
 
         muted: {
           DEFAULT: "hsl(var(--muted))",
@@ -56,12 +56,12 @@ export default {
           foreground: "hsl(var(--card-foreground))",
         },
         sidebar: {
-          DEFAULT: "#343248", // Set Sidebar background to your Grey
-          foreground: "#ffffff", // Sidebar text white
-          primary: "#f7c021", // Sidebar active item yellow
-          "primary-foreground": "#343248",
-          accent: "#651327", // Sidebar hover maroon
-          "accent-foreground": "#ffffff",
+          DEFAULT: "hsl(var(--sidebar-background))",
+          foreground: "hsl(var(--sidebar-foreground))",
+          primary: "hsl(var(--sidebar-primary))",
+          "primary-foreground": "hsl(var(--sidebar-primary-foreground))",
+          accent: "hsl(var(--sidebar-accent))",
+          "accent-foreground": "hsl(var(--sidebar-accent-foreground))",
           border: "hsl(var(--sidebar-border))",
           ring: "hsl(var(--sidebar-ring))",
         },
