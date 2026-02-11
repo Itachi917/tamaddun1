@@ -14,19 +14,28 @@ export default function ServiceAI() {
   const [input, setInput] = useState("");
 
   const handleSend = () => {
-    if (!input.trim()) return;
-    const newMsg = { role: "user", content: input };
-    setMessages([...messages, newMsg]);
-    setInput("");
+  if (!input.trim() || isThinking) return;
+
+  const userMsg = { role: "user", content: input };
+  setMessages((prev) => [...prev, userMsg]);
+  setInput("");
+  
+  // 1. Show the thinking animation
+  setIsThinking(true);
+
+  // 2. Simulate a delay (mimicking AI processing)
+  setTimeout(() => {
+    setIsThinking(false); // Hide animation
     
-    // Simulate AI Response (You can connect real API here later)
-    setTimeout(() => {
-      setMessages(prev => [...prev, { 
+    setMessages((prev) => [
+      ...prev,
+      { 
         role: "ai", 
         content: `I am analyzing your request regarding ${service}... (This is a demo response)` 
-      }]);
-    }, 1000);
-  };
+      }
+    ]);
+  }, 2000); // 2 second delay
+};
 
   const getServiceColor = () => {
     if (service === 'water') return 'text-blue-500';
@@ -34,6 +43,7 @@ export default function ServiceAI() {
     if (service === 'construction') return 'text-orange-500';
     return 'text-primary';
   };
+  const [isThinking, setIsThinking] = useState(false);
   const ThinkingIndicator = () => (
     <div className="flex gap-1.5 p-3 rounded-lg bg-muted w-max">
       {[0, 1, 2].map((i) => (
@@ -64,19 +74,24 @@ export default function ServiceAI() {
           </CardTitle>
         </CardHeader>
         <CardContent className="flex-1 p-0 overflow-hidden relative">
-          <ScrollArea className="h-full p-4">
-            <div className="space-y-4">
-              {messages.map((m, i) => (
-                <div key={i} className={`flex gap-3 ${m.role === 'user' ? 'justify-end' : 'justify-start'}`}>
-                  {m.role === 'ai' && <div className="w-8 h-8 rounded-full bg-secondary flex items-center justify-center"><Bot className="h-5 w-5" /></div>}
-                  <div className={`p-3 rounded-lg max-w-[80%] ${m.role === 'user' ? 'bg-primary text-primary-foreground' : 'bg-muted'}`}>
-                    {m.content}
-                  </div>
-                  {m.role === 'user' && <div className="w-8 h-8 rounded-full bg-primary flex items-center justify-center"><User className="h-5 w-5 text-primary-foreground" /></div>}
+         <ScrollArea className="h-full p-4">
+          <div className="space-y-4">
+            {messages.map((m, i) => (
+              // ... your existing message mapping code ...
+            ))}
+        
+            {/* --- ADD THIS BLOCK HERE --- */}
+            {isThinking && (
+              <div className="flex justify-start gap-3 animate-in fade-in slide-in-from-bottom-2">
+                <div className="w-8 h-8 rounded-full bg-secondary flex items-center justify-center">
+                  <Bot className="h-5 w-5" />
                 </div>
-              ))}
-            </div>
-          </ScrollArea>
+                <ThinkingIndicator />
+              </div>
+            )}
+            {/* --------------------------- */}
+          </div>
+        </ScrollArea>
         </CardContent>
         <div className="p-4 border-t bg-background">
           <form onSubmit={(e) => { e.preventDefault(); handleSend(); }} className="flex gap-2">
