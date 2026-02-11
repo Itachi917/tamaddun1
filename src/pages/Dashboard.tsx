@@ -2,6 +2,9 @@ import { Outlet } from "react-router-dom";
 import { SidebarProvider, SidebarTrigger } from "@/components/ui/sidebar";
 import { DashboardSidebar } from "@/components/DashboardSidebar";
 
+const { lang } = useLanguage();
+const t = translations[lang] || translations.en;
+
 const Dashboard = () => {
   return (
     <SidebarProvider>
