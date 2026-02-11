@@ -17,6 +17,9 @@ import { ModeToggle } from "@/components/mode-toggle";
 
 const queryClient = new QueryClient();
 
+const { lang } = useLanguage();
+const t = translations[lang] || translations.en;
+
 const App = () => (
   <QueryClientProvider client={queryClient}>
     <TooltipProvider>
