@@ -11,6 +11,8 @@ import WaterDashboard from "./pages/WaterDashboard";
 import ElectricityDashboard from "./pages/ElectricityDashboard";
 import ConstructionDashboard from "./pages/ConstructionDashboard";
 import ChatHub from "./pages/ChatHub";
+import CustomerServices from "./pages/CustomerServices"; // Import New Page
+import ServiceAI from "./pages/ServiceAI"; // Import New Page
 import { ModeToggle } from "@/components/mode-toggle";
 
 const queryClient = new QueryClient();
@@ -23,21 +25,30 @@ const App = () => (
       <BrowserRouter>
         <Routes>
           <Route path="/" element={<Index />} />
+          
+          {/* Main Layout for both Staff and Customers */}
           <Route path="/dashboard" element={<Dashboard />}>
+            
+            {/* --- STAFF AREA --- */}
             <Route index element={<DashboardOverview />} />
-            <Route path="water" element={<WaterDashboard />} />
-            <Route path="electricity" element={<ElectricityDashboard />} />
-            <Route path="construction" element={<ConstructionDashboard />} />
-            <Route path="chat" element={<ChatHub />} />
+            <Route path="staff/water" element={<WaterDashboard />} />
+            <Route path="staff/electricity" element={<ElectricityDashboard />} />
+            <Route path="staff/construction" element={<ConstructionDashboard />} />
+            <Route path="staff/chat" element={<ChatHub />} />
+
+            {/* --- CUSTOMER AREA --- */}
+            <Route path="customer" element={<CustomerServices />} />
+            <Route path="customer/chat/:service" element={<ServiceAI />} />
+
           </Route>
+
           <Route path="*" element={<NotFound />} />
         </Routes>
 
-        {/* --- FLOATING DARK MODE BUTTON START --- */}
+        {/* Floating Dark Mode Button */}
         <div className="fixed bottom-4 right-4 z-50">
           <ModeToggle />
         </div>
-        {/* --- FLOATING DARK MODE BUTTON END --- */}
 
       </BrowserRouter>
     </TooltipProvider>
