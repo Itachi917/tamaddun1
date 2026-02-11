@@ -7,7 +7,7 @@ import {
   MessageSquare, 
   Store 
 } from "lucide-react";
-import { NavLink } from "@/components/NavLink"; // Assuming this is your custom wrapper
+import { NavLink } from "@/components/NavLink";
 import {
   Sidebar,
   SidebarContent,
@@ -36,11 +36,17 @@ export function DashboardSidebar() {
   return (
     <Sidebar collapsible="icon">
       <SidebarHeader className="p-4">
-        {/* Note: This is where your 'T' logo is defined if you want to change it later */}
         <NavLink to="/" className="flex items-center gap-2">
-          <div className="flex h-8 w-8 shrink-0 items-center justify-center rounded-lg bg-gradient-to-br from-sidebar-primary to-[hsl(200,85%,50%)]">
-            <span className="text-sm font-bold text-sidebar-primary-foreground">T</span>
-          </div>
+          
+          {/* --- IMAGE LOGO START --- */}
+          {/* Make sure to put your logo.png in the public folder */}
+          <img 
+            src="/logo.png" 
+            alt="Tamaddun Logo" 
+            className="h-8 w-8 shrink-0 rounded-lg object-contain" 
+          />
+          {/* --- IMAGE LOGO END --- */}
+
           <span className="font-display text-lg font-bold text-sidebar-foreground group-data-[collapsible=icon]:hidden">
             Tamaddun
           </span>
