@@ -112,13 +112,13 @@ const Index = () => {
             </span>{" "}
             Cities
           </motion.h1>
-          <motion.p
-            className="mx-auto mb-10 max-w-2xl text-lg text-primary-foreground/70 md:text-xl"
-            initial="hidden" animate="visible" variants={fadeUp} custom={2}
-          >
-            Tamaddun empowers cities with AI-driven solutions for water distribution,
-            electricity management, and intelligent construction — all in one platform.
-          </motion.p>
+         <motion.p
+  className="mx-auto mb-10 max-w-2xl text-lg text-primary md:text-xl"
+  initial="hidden" animate="visible" variants={fadeUp} custom={2}
+>
+  Tamaddun empowers cities with AI-driven solutions for water distribution,
+  electricity management, and intelligent construction — all in one platform.
+</motion.p>
           <motion.div className="flex flex-wrap items-center justify-center gap-4" initial="hidden" animate="visible" variants={fadeUp} custom={3}>
             <Button size="lg" asChild className="h-12 px-8 text-base">
               <Link to="/dashboard">Explore Dashboard <ArrowRight className="ml-2 h-4 w-4" /></Link>
