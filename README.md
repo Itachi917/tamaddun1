@@ -1,73 +1,90 @@
-# Welcome to your Lovable project
+# Tamaddun
 
-## Project info
+![Project Status](https://img.shields.io/badge/status-active-success.svg)
+![License](https://img.shields.io/badge/license-MIT-blue.svg)
 
-**URL**: https://lovable.dev/projects/REPLACE_WITH_PROJECT_ID
+## 📖 About
 
-## How can I edit this code?
+**Tamaddun** is a modern web application built to [write what your app does here - e.g., facilitate student learning, manage hall bookings, etc.]. It is designed with performance and accessibility in mind, utilizing the latest React ecosystem tools.
 
-There are several ways of editing your application.
+### ✨ Key Features
 
-**Use Lovable**
+* **Responsive Design:** Fully optimized for desktop, tablet, and mobile devices.
+* **Modern UI:** Built with **shadcn/ui** and **Tailwind CSS** for a clean, consistent aesthetic.
+* **Dynamic Data:** Powered by **TanStack Query** for efficient data fetching and caching.
+* **Interactive Charts:** Data visualization using **Recharts**.
+* **Form Validation:** Robust form handling with **React Hook Form** and **Zod**.
+* **Client-Side Routing:** Seamless navigation using **React Router**.
 
-Simply visit the [Lovable Project](https://lovable.dev/projects/REPLACE_WITH_PROJECT_ID) and start prompting.
+---
 
-Changes made via Lovable will be committed automatically to this repo.
+## 🛠️ Tech Stack
 
-**Use your preferred IDE**
+**Core:**
+* [React 18](https://react.dev/)
+* [TypeScript](https://www.typescriptlang.org/)
+* [Vite](https://vitejs.dev/)
 
-If you want to work locally using your own IDE, you can clone this repo and push changes. Pushed changes will also be reflected in Lovable.
+**Styling & UI:**
+* [Tailwind CSS](https://tailwindcss.com/)
+* [shadcn/ui](https://ui.shadcn.com/) (Radix UI)
+* [Lucide React](https://lucide.dev/) (Icons)
+* [Framer Motion](https://www.framer.com/motion/) (Animations)
 
-The only requirement is having Node.js & npm installed - [install with nvm](https://github.com/nvm-sh/nvm#installing-and-updating)
+**State & Utils:**
+* [TanStack Query](https://tanstack.com/query/latest)
+* [React Hook Form](https://react-hook-form.com/) + [Zod](https://zod.dev/)
+* [date-fns](https://date-fns.org/)
 
-Follow these steps:
+---
 
-```sh
-# Step 1: Clone the repository using the project's Git URL.
-git clone <YOUR_GIT_URL>
+## 🚀 Getting Started
 
-# Step 2: Navigate to the project directory.
-cd <YOUR_PROJECT_NAME>
+Follow these steps to set up the project locally.
 
-# Step 3: Install the necessary dependencies.
-npm i
+### Prerequisites
 
-# Step 4: Start the development server with auto-reloading and an instant preview.
-npm run dev
-```
+Ensure you have the following installed:
+* **Node.js** (v18 or higher)
+* **npm** (or yarn/bun)
 
-**Edit a file directly in GitHub**
+### Installation
 
-- Navigate to the desired file(s).
-- Click the "Edit" button (pencil icon) at the top right of the file view.
-- Make your changes and commit the changes.
+1.  **Clone the repository**
+    ```bash
+    git clone [https://github.com/Itachi917/tamaddun1.git](https://github.com/Itachi917/tamaddun1.git)
+    cd tamaddun1
+    ```
 
-**Use GitHub Codespaces**
+2.  **Install dependencies**
+    ```bash
+    npm install
+    ```
 
-- Navigate to the main page of your repository.
-- Click on the "Code" button (green button) near the top right.
-- Select the "Codespaces" tab.
-- Click on "New codespace" to launch a new Codespace environment.
-- Edit files directly within the Codespace and commit and push your changes once you're done.
+3.  **Start the development server**
+    ```bash
+    npm run dev
+    ```
 
-## What technologies are used for this project?
+4.  **Open your browser**
+    Navigate to `http://localhost:8080` to view the app.
 
-This project is built with:
+---
 
-- Vite
-- TypeScript
-- React
-- shadcn-ui
-- Tailwind CSS
+## 📜 Available Scripts
 
-## How can I deploy this project?
+| Command | Description |
+| :--- | :--- |
+| `npm run dev` | Starts the development server. |
+| `npm run build` | Builds the app for production (outputs to `dist`). |
+| `npm run preview` | Locally previews the production build. |
+| `npm run lint` | Runs ESLint to find and fix code issues. |
+| `npm test` | Runs tests using Vitest. |
 
-Simply open [Lovable](https://lovable.dev/projects/REPLACE_WITH_PROJECT_ID) and click on Share -> Publish.
+---
 
-## Can I connect a custom domain to my Lovable project?
+## 📂 Project Structure
 
-Yes, you can!
-
-To connect a domain, navigate to Project > Settings > Domains and click Connect Domain.
-
-Read more here: [Setting up a custom domain](https://docs.lovable.dev/features/custom-domain#custom-domain)
+```text
+├── src/
+│   ├── components/   # Reusable
