@@ -123,9 +123,9 @@ const Index = () => {
             <Button size="lg" asChild className="h-12 px-8 text-base">
               <Link to="/dashboard">Explore Dashboard <ArrowRight className="ml-2 h-4 w-4" /></Link>
             </Button>
-            <Button size="lg" variant="outline" asChild className="h-12 border-primary-foreground/20 px-8 text-base text-primary-foreground hover:bg-primary-foreground/10">
-              <a href="#services">Learn More</a>
-            </Button>
+           <Button size="lg" variant="default" asChild className="h-12 px-8 text-base">
+           <a href="#services">Learn More</a>
+           </Button>
           </motion.div>
         </div>
       </section>
