@@ -89,9 +89,10 @@ const Index = () => {
       {/* Hero Section */}
       <section className="relative flex min-h-[90vh] items-center justify-center overflow-hidden pt-16"
         style={{ background: "var(--gradient-hero)" }}>
-        <div className="absolute inset-0 opacity-10"
+        {/* Grid pattern updated for visibility */}
+        <div className="absolute inset-0 opacity-[0.15]"
           style={{
-            backgroundImage: `linear-gradient(hsl(var(--primary)) 1px, transparent 1px), linear-gradient(90deg, hsl(var(--primary)) 1px, transparent 1px)`,
+            backgroundImage: `linear-gradient(hsl(var(--foreground)) 1px, transparent 1px), linear-gradient(90deg, hsl(var(--foreground)) 1px, transparent 1px)`,
             backgroundSize: "60px 60px",
           }}
         />
