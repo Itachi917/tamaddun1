@@ -8,6 +8,8 @@ import {
   Store 
 } from "lucide-react";
 import { NavLink } from "@/components/NavLink";
+import { useLanguage } from "@/components/language-provider";
+import { translations } from "@/lib/translations";
 import {
   Sidebar,
   SidebarContent,
@@ -20,30 +22,31 @@ import {
   SidebarHeader,
 } from "@/components/ui/sidebar";
 
-const staffItems = [
-  { title: "Overview", url: "/dashboard", icon: LayoutDashboard },
-  { title: "Water System", url: "/dashboard/staff/water", icon: Droplets },
-  { title: "Electricity", url: "/dashboard/staff/electricity", icon: Zap },
-  { title: "Construction", url: "/dashboard/staff/construction", icon: HardHat },
-  { title: "Staff Chat", url: "/dashboard/staff/chat", icon: MessageSquare },
-];
-
-const customerItems = [
-  { title: "Service Portal", url: "/dashboard/customer", icon: Store },
-];
-
 export function DashboardSidebar() {
+  const { lang } = useLanguage();
+  const t = translations[lang] || translations.en;
+
+  const staffItems = [
+    { title: t.sidebar.overview, url: "/dashboard", icon: LayoutDashboard },
+    { title: t.sidebar.water, url: "/dashboard/staff/water", icon: Droplets },
+    { title: t.sidebar.electricity, url: "/dashboard/staff/electricity", icon: Zap },
+    { title: t.sidebar.construction, url: "/dashboard/staff/construction", icon: HardHat },
+    { title: t.sidebar.chat, url: "/dashboard/staff/chat", icon: MessageSquare },
+  ];
+
+  const customerItems = [
+    { title: t.sidebar.servicePortal, url: "/dashboard/customer", icon: Store },
+  ];
+
   return (
     <Sidebar collapsible="icon">
       <SidebarHeader className="p-4">
         <NavLink to="/" className="flex items-center gap-2">
-          
           <img 
             src="/logo.png" 
             alt="Tamaddun Logo" 
             className="h-8 w-8 shrink-0 rounded-lg object-contain" 
           />
-
           <span className="font-display text-lg font-bold text-sidebar-foreground group-data-[collapsible=icon]:hidden">
             Tamaddun
           </span>
@@ -51,10 +54,9 @@ export function DashboardSidebar() {
       </SidebarHeader>
 
       <SidebarContent>
-        
         {/* --- GROUP 1: STAFF PORTAL --- */}
         <SidebarGroup>
-          <SidebarGroupLabel>Staff Portal</SidebarGroupLabel>
+          <SidebarGroupLabel>{t.sidebar.staffLabel}</SidebarGroupLabel>
           <SidebarGroupContent>
             <SidebarMenu>
               {staffItems.map((item) => (
@@ -78,7 +80,7 @@ export function DashboardSidebar() {
 
         {/* --- GROUP 2: CUSTOMER PORTAL --- */}
         <SidebarGroup>
-          <SidebarGroupLabel>Customer Portal</SidebarGroupLabel>
+          <SidebarGroupLabel>{t.sidebar.customerLabel}</SidebarGroupLabel>
           <SidebarGroupContent>
             <SidebarMenu>
               {customerItems.map((item) => (
@@ -104,17 +106,16 @@ export function DashboardSidebar() {
           <SidebarGroupContent>
             <SidebarMenu>
               <SidebarMenuItem>
-                <SidebarMenuButton asChild tooltip="Back to Home">
+                <SidebarMenuButton asChild tooltip={t.sidebar.backHome}>
                   <NavLink to="/" className="hover:bg-sidebar-accent flex items-center gap-2">
                     <Home className="h-4 w-4" />
-                    <span>Back to Home</span>
+                    <span>{t.sidebar.backHome}</span>
                   </NavLink>
                 </SidebarMenuButton>
               </SidebarMenuItem>
             </SidebarMenu>
           </SidebarGroupContent>
         </SidebarGroup>
-
       </SidebarContent>
     </Sidebar>
   );
