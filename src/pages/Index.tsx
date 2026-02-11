@@ -66,8 +66,12 @@ const Index = () => {
       <nav className="fixed top-0 left-0 right-0 z-50 border-b border-border/50 bg-background/80 backdrop-blur-xl">
         <div className="container mx-auto flex h-16 items-center justify-between px-4">
           <Link to="/" className="flex items-center gap-2">
-            <div className="flex h-9 w-9 items-center justify-center rounded-lg bg-gradient-to-br from-primary to-[hsl(200,85%,50%)]">
-              <span className="text-lg font-bold text-primary-foreground">T</span>
+            <div className="flex h-8 w-8 shrink-0 items-center justify-center overflow-hidden rounded-lg">
+            <img 
+              src="/logo.png" 
+              alt="Logo" 
+              className="h-full w-full object-contain" 
+            />
             </div>
             <span className="font-display text-xl font-bold">Tamaddun</span>
           </Link>
