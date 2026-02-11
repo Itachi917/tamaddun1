@@ -38,14 +38,11 @@ export function DashboardSidebar() {
       <SidebarHeader className="p-4">
         <NavLink to="/" className="flex items-center gap-2">
           
-          {/* --- IMAGE LOGO START --- */}
-          {/* Make sure to put your logo.png in the public folder */}
           <img 
             src="/logo.png" 
             alt="Tamaddun Logo" 
             className="h-8 w-8 shrink-0 rounded-lg object-contain" 
           />
-          {/* --- IMAGE LOGO END --- */}
 
           <span className="font-display text-lg font-bold text-sidebar-foreground group-data-[collapsible=icon]:hidden">
             Tamaddun
