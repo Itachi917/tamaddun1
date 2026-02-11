@@ -3,6 +3,9 @@ import { Button } from "@/components/ui/button";
 import { Droplets, Zap, HardHat, ArrowRight } from "lucide-react";
 import { useNavigate } from "react-router-dom";
 
+const { lang } = useLanguage();
+const t = translations[lang] || translations.en;
+
 const services = [
   {
     id: "water",
