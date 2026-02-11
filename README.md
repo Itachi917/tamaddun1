@@ -35,12 +35,3 @@
 * [TanStack Query](https://tanstack.com/query/latest)
 * [React Hook Form](https://react-hook-form.com/) + [Zod](https://zod.dev/)
 * [date-fns](https://date-fns.org/)
-
----
-
-
-## 📂 Project Structure
-
-```text
-├── src/
-│   ├── components/   # Reusable
