@@ -1,6 +1,9 @@
 import { useLocation } from "react-router-dom";
 import { useEffect } from "react";
 
+const { lang } = useLanguage();
+const t = translations[lang] || translations.en;
+
 const NotFound = () => {
   const location = useLocation();
 
