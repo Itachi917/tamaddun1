@@ -1,5 +1,13 @@
-import { Droplets, Zap, HardHat, Bot, LayoutDashboard, Home } from "lucide-react";
-import { NavLink } from "@/components/NavLink";
+import { 
+  Droplets, 
+  Zap, 
+  HardHat, 
+  LayoutDashboard, 
+  Home, 
+  MessageSquare, 
+  Store 
+} from "lucide-react";
+import { NavLink } from "@/components/NavLink"; // Assuming this is your custom wrapper
 import {
   Sidebar,
   SidebarContent,
@@ -28,6 +36,7 @@ export function DashboardSidebar() {
   return (
     <Sidebar collapsible="icon">
       <SidebarHeader className="p-4">
+        {/* Note: This is where your 'T' logo is defined if you want to change it later */}
         <NavLink to="/" className="flex items-center gap-2">
           <div className="flex h-8 w-8 shrink-0 items-center justify-center rounded-lg bg-gradient-to-br from-sidebar-primary to-[hsl(200,85%,50%)]">
             <span className="text-sm font-bold text-sidebar-primary-foreground">T</span>
@@ -37,11 +46,10 @@ export function DashboardSidebar() {
           </span>
         </NavLink>
       </SidebarHeader>
+
       <SidebarContent>
-        <SidebarGroup>
-          <SidebarGroupLabel>Dashboard</SidebarGroupLabel>
-          <SidebarGroupContent>
-            {/* --- GROUP 1: STAFF PORTAL --- */}
+        
+        {/* --- GROUP 1: STAFF PORTAL --- */}
         <SidebarGroup>
           <SidebarGroupLabel>Staff Portal</SidebarGroupLabel>
           <SidebarGroupContent>
@@ -87,12 +95,14 @@ export function DashboardSidebar() {
             </SidebarMenu>
           </SidebarGroupContent>
         </SidebarGroup>
+
+        {/* --- BOTTOM GROUP: HOME LINK --- */}
         <SidebarGroup className="mt-auto">
           <SidebarGroupContent>
             <SidebarMenu>
               <SidebarMenuItem>
                 <SidebarMenuButton asChild tooltip="Back to Home">
-                  <NavLink to="/" className="hover:bg-sidebar-accent">
+                  <NavLink to="/" className="hover:bg-sidebar-accent flex items-center gap-2">
                     <Home className="h-4 w-4" />
                     <span>Back to Home</span>
                   </NavLink>
@@ -101,6 +111,7 @@ export function DashboardSidebar() {
             </SidebarMenu>
           </SidebarGroupContent>
         </SidebarGroup>
+
       </SidebarContent>
     </Sidebar>
   );
