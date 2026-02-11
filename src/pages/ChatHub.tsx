@@ -28,29 +28,29 @@ const ChatHub = () => {
     if (!text.trim()) return;
     const userMsg: Message = { role: "user", text };
     
-    // Logic to find translated response or fallback
-    const botReply: Message = {
-      role: "bot",
-      text: t.aiChat.responses[text] || t.aiChat.responses.fallback,
-    };
+    // Logic to find translated response based on question match
+    let botText = t.aiChat.responses.fallback;
+    if (text === t.aiChat.questions.water) botText = t.aiChat.responses.water;
+    if (text === t.aiChat.questions.electricity) botText = t.aiChat.responses.electricity;
+    if (text === t.aiChat.questions.construction) botText = t.aiChat.responses.construction;
 
     setMessages((prev) => [...prev, userMsg]);
     setInput("");
-    setTimeout(() => setMessages((prev) => [...prev, botReply]), 800);
+    setTimeout(() => setMessages((prev) => [...prev, { role: "bot", text: botText }]), 800);
   };
 
   return (
     <div className="flex h-[calc(100vh-5rem)] flex-col space-y-4">
       <div className="text-start">
         <h1 className="font-display text-3xl font-bold flex items-center gap-3">
-          <Bot className="h-8 w-8 text-primary" /> {t.sidebar.chat}
+          <Bot className="h-8 w-8 text-primary" /> {t.aiChat.title}
         </h1>
-        <p className="text-muted-foreground">{t.aiHub.badge}</p>
+        <p className="text-muted-foreground">{t.aiChat.subtitle}</p>
       </div>
 
       <Card className="flex flex-1 flex-col overflow-hidden bg-card/50 backdrop-blur-sm border-border/50">
-        <CardContent className="flex flex-1 flex-col p-0">
-          <div className="flex-1 space-y-4 overflow-y-auto p-6">
+        <CardContent className="flex flex-1 flex-col p-0 overflow-hidden">
+          <div className="flex-1 space-y-4 overflow-y-auto p-6 scrollbar-hide">
             <AnimatePresence>
               {messages.map((msg, i) => (
                 <motion.div key={i} initial={{ opacity: 0, y: 10 }} animate={{ opacity: 1, y: 0 }}
@@ -61,7 +61,7 @@ const ChatHub = () => {
                     </div>
                   )}
                   <div className={`max-w-[80%] rounded-xl px-4 py-3 text-sm whitespace-pre-line text-start ${
-                    msg.role === "user" ? "bg-primary text-primary-foreground" : "bg-muted"
+                    msg.role === "user" ? "bg-primary text-primary-foreground" : "bg-muted border border-border/50"
                   }`}>
                     {msg.text}
                   </div>
@@ -70,17 +70,15 @@ const ChatHub = () => {
             </AnimatePresence>
           </div>
 
-          {messages.length <= 1 && (
-            <div className="flex flex-wrap gap-2 border-t border-border/50 px-6 py-3">
-              {presetQuestions.map((q) => (
-                <Button key={q.label} variant="outline" size="sm" onClick={() => handleSend(q.question)} className="gap-2">
-                  {q.icon} {q.label}
-                </Button>
-              ))}
-            </div>
-          )}
+          <div className="flex flex-wrap gap-2 border-t border-border/50 px-6 py-3">
+            {presetQuestions.map((q) => (
+              <Button key={q.label} variant="outline" size="sm" onClick={() => handleSend(q.question)} className="gap-2">
+                {q.icon} {q.label}
+              </Button>
+            ))}
+          </div>
 
-          <div className="flex items-center gap-2 border-t border-border/50 p-4">
+          <div className="flex items-center gap-2 border-t border-border/50 p-4 bg-background/50">
             <Input placeholder={t.aiChat.placeholder} value={input}
               onChange={(e) => setInput(e.target.value)}
               onKeyDown={(e) => e.key === "Enter" && handleSend(input)}
