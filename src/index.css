@@ -6,58 +6,61 @@
 
 @layer base {
   :root {
-    /* --- LIGHT MODE (New High Contrast Theme) --- */
-    /* Background: Off-white */
-    --background: 0 0% 98%;
-    /* Text: Your Dark Grey #343248 */
+    /* --- LIGHT MODE (High-Contrast "Lighter" Theme) --- */
+    /* Background: Pure White */
+    --background: 0 0% 100%;
+    /* Text: Your Brand Grey #343248 */
     --foreground: 245 18% 24%;
 
+    /* Cards & Popovers: Clean white with very subtle borders */
     --card: 0 0% 100%;
     --card-foreground: 245 18% 24%;
-
     --popover: 0 0% 100%;
     --popover-foreground: 245 18% 24%;
 
-    /* Primary: Deeper Gold (better visibility on white) */
+    /* Primary: Clean Gold (Darkened yellow for contrast on white) */
     --primary: 45 93% 45%; 
     --primary-foreground: 0 0% 100%;
 
-    /* Secondary: Maroon */
+    /* Secondary: Deep Maroon */
     --secondary: 345 68% 24%;
     --secondary-foreground: 0 0% 100%;
 
-    --muted: 240 5% 90%;
-    --muted-foreground: 245 10% 40%;
+    /* Muted: Very light grey-wash */
+    --muted: 240 5% 96%;
+    --muted-foreground: 240 4% 45%;
 
-    --accent: 45 93% 94%; /* V. Light Yellow for hover states */
+    /* Accent: Very light yellow glow */
+    --accent: 45 93% 96%;
     --accent-foreground: 345 68% 24%;
 
     --destructive: 0 84% 60%;
     --destructive-foreground: 0 0% 98%;
 
-    --border: 240 6% 88%;
-    --input: 240 6% 88%;
+    /* Borders: Soft grey */
+    --border: 240 6% 92%;
+    --input: 240 6% 92%;
     --ring: 45 93% 45%;
 
     --radius: 0.75rem;
 
-    /* Sidebar in Light Mode */
-    --sidebar-background: 0 0% 98%;
+    /* Sidebar Light Mode: Airy and clean */
+    --sidebar-background: 0 0% 100%;
     --sidebar-foreground: 245 18% 24%;
     --sidebar-primary: 45 93% 45%;
     --sidebar-primary-foreground: 0 0% 100%;
-    --sidebar-accent: 240 5% 90%;
+    --sidebar-accent: 240 5% 96%;
     --sidebar-accent-foreground: 345 68% 24%;
-    --sidebar-border: 240 6% 90%;
+    --sidebar-border: 240 6% 94%;
     --sidebar-ring: 45 93% 45%;
 
-    /* Gradients for Light Mode */
-    --gradient-hero: linear-gradient(135deg, hsl(0 0% 98%), hsl(240 5% 94%), hsl(45 93% 90%));
+    /* Gradients: Lighter/Softer versions */
+    --gradient-hero: linear-gradient(135deg, hsl(0 0% 100%), hsl(240 5% 98%), hsl(45 93% 92%));
   }
 
   .dark {
     /* --- DARK MODE (Your Default Brand Theme) --- */
-    /* Background: Grey #343248 */
+    /* Background: Brand Grey #343248 */
     --background: 245 18% 24%;
     /* Text: White */
     --foreground: 0 0% 100%;
@@ -72,12 +75,12 @@
     --primary: 45 93% 55%;
     --primary-foreground: 245 18% 24%;
 
-    /* Secondary: Maroon #651327 */
+    /* Secondary: Brand Maroon #651327 */
     --secondary: 345 68% 24%;
     --secondary-foreground: 0 0% 100%;
 
-    --muted: 245 15% 20%;
-    --muted-foreground: 220 10% 70%;
+    --muted: 245 15% 18%;
+    --muted-foreground: 240 5% 75%;
 
     --accent: 345 68% 24%;
     --accent-foreground: 0 0% 100%;
@@ -85,11 +88,12 @@
     --destructive: 345 68% 24%;
     --destructive-foreground: 0 0% 100%;
 
+    /* Borders: Maroon for a sleek outline */
     --border: 345 68% 24%;
     --input: 345 68% 24%;
     --ring: 45 93% 55%;
 
-    /* Sidebar in Dark Mode */
+    /* Sidebar Dark Mode: Matches the #343248 background */
     --sidebar-background: 245 18% 24%;
     --sidebar-foreground: 0 0% 100%;
     --sidebar-primary: 45 93% 55%;
@@ -99,7 +103,7 @@
     --sidebar-border: 345 68% 24%;
     --sidebar-ring: 45 93% 55%;
 
-    /* Gradients for Dark Mode */
+    /* Brand Gradients */
     --gradient-primary: linear-gradient(135deg, hsl(45 93% 55%), hsl(28 90% 55%));
     --gradient-hero: linear-gradient(135deg, hsl(245 18% 24%), hsl(245 25% 15%), hsl(345 68% 20%));
   }
@@ -110,7 +114,7 @@
     @apply border-border;
   }
   body {
-    @apply bg-background text-foreground font-sans;
+    @apply bg-background text-foreground font-sans antialiased transition-colors duration-300;
     font-family: 'Inter', sans-serif;
   }
   h1, h2, h3, h4, h5, h6 {
@@ -118,10 +122,10 @@
   }
 }
 
-/* Keep your existing animations below */
+/* --- ANIMATIONS --- */
 @keyframes grid-pulse {
-  0%, 100% { opacity: 0.3; }
-  50% { opacity: 0.6; }
+  0%, 100% { opacity: 0.2; }
+  50% { opacity: 0.4; }
 }
 
 @keyframes float {
