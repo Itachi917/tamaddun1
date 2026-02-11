@@ -3,8 +3,8 @@ import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { motion } from "framer-motion";
 import { Droplets, Zap, HardHat, Bot, ArrowRight, Settings, BarChart3, Eye, Send, ChevronRight } from "lucide-react";
-import { useState, useEffect } from "react";
 import { LanguageToggle } from "@/components/language-toggle";
+import { useLanguage } from "@/components/language-provider"; // Using the hook
 import { translations } from "@/lib/translations";
 
 const fadeUp = {
@@ -17,20 +17,9 @@ const fadeUp = {
 };
 
 const Index = () => {
-  // 1. Language Detection Logic
-  const [lang, setLang] = useState(document.documentElement.lang || "en");
+  const { lang } = useLanguage();
+  const t = translations[lang] || translations.en;
 
-  useEffect(() => {
-    const observer = new MutationObserver(() => {
-      setLang(document.documentElement.lang);
-    });
-    observer.observe(document.documentElement, { attributes: true });
-    return () => observer.disconnect();
-  }, []);
-
-  const t = translations[lang as keyof typeof translations] || translations.en;
-
-  // 2. Dynamic Services Data (Translated)
   const services = [
     {
       icon: Droplets,
@@ -109,8 +98,8 @@ const Index = () => {
 
       {/* Services Section */}
       <section id="services" className="py-24 bg-background">
-        <div className="container mx-auto px-4">
-          <motion.div className="mb-16 text-center" initial="hidden" whileInView="visible" viewport={{ once: true }} variants={fadeUp} custom={0}>
+        <div className="container mx-auto px-4 text-center">
+          <motion.div className="mb-16" initial="hidden" whileInView="visible" viewport={{ once: true }} variants={fadeUp} custom={0}>
             <h2 className="mb-4 font-display text-4xl font-bold md:text-5xl text-white">{t.nav.services}</h2>
           </motion.div>
           <div className="grid gap-8 md:grid-cols-3">
@@ -144,9 +133,7 @@ const Index = () => {
         <div className="container mx-auto px-4 text-center md:text-start">
           <div className="flex flex-col items-center justify-between gap-6 md:flex-row">
             <div className="flex items-center gap-2">
-              <div className="flex h-8 w-8 shrink-0 items-center justify-center overflow-hidden rounded-lg">
-                <img src="/logo.png" alt="Logo" className="h-full w-full object-contain" />
-              </div>
+              <img src="/logo.png" alt="Logo" className="h-8 w-8 object-contain" />
               <span className="font-display text-lg font-bold text-white">Tamaddun</span>
             </div>
             <p className="text-sm text-muted-foreground">© 2026 Tamaddun. {t.footer.copy}</p>
