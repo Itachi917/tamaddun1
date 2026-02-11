@@ -32,6 +32,13 @@ const App = () => (
           </Route>
           <Route path="*" element={<NotFound />} />
         </Routes>
+
+        {/* --- FLOATING DARK MODE BUTTON START --- */}
+        <div className="fixed bottom-4 right-4 z-50">
+          <ModeToggle />
+        </div>
+        {/* --- FLOATING DARK MODE BUTTON END --- */}
+
       </BrowserRouter>
     </TooltipProvider>
   </QueryClientProvider>
