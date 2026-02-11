@@ -75,7 +75,7 @@ const Index = () => {
                 className="h-full w-full object-contain" 
               />
             </div>
-            <span className="font-display text-xl font-bold">Tamaddun</span>
+            <span className="font-display text-xl font-bold">Tamaddun Test</span>
           </Link>
           <div className="hidden items-center gap-8 md:flex">
             <a href="#services" className="text-sm text-muted-foreground transition-colors hover:text-foreground">Services</a>
