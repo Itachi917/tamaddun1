@@ -34,7 +34,22 @@ export default function ServiceAI() {
     if (service === 'construction') return 'text-orange-500';
     return 'text-primary';
   };
-
+  const ThinkingIndicator = () => (
+    <div className="flex gap-1.5 p-3 rounded-lg bg-muted w-max">
+      {[0, 1, 2].map((i) => (
+        <motion.div
+          key={i}
+          className="h-2 w-2 rounded-full bg-primary"
+          animate={{ opacity: [0.3, 1, 0.3] }}
+          transition={{
+            duration: 1,
+            repeat: Infinity,
+            delay: i * 0.2,
+          }}
+        />
+      ))}
+    </div>
+  );
   return (
     <div className="h-[calc(100vh-2rem)] flex flex-col gap-4 p-4 max-w-5xl mx-auto">
       <div className="flex items-center gap-2 mb-2">
