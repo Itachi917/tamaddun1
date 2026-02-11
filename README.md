@@ -38,50 +38,6 @@
 
 ---
 
-## 🚀 Getting Started
-
-Follow these steps to set up the project locally.
-
-### Prerequisites
-
-Ensure you have the following installed:
-* **Node.js** (v18 or higher)
-* **npm** (or yarn/bun)
-
-### Installation
-
-1.  **Clone the repository**
-    ```bash
-    git clone [https://github.com/Itachi917/tamaddun1.git](https://github.com/Itachi917/tamaddun1.git)
-    cd tamaddun1
-    ```
-
-2.  **Install dependencies**
-    ```bash
-    npm install
-    ```
-
-3.  **Start the development server**
-    ```bash
-    npm run dev
-    ```
-
-4.  **Open your browser**
-    Navigate to `http://localhost:8080` to view the app.
-
----
-
-## 📜 Available Scripts
-
-| Command | Description |
-| :--- | :--- |
-| `npm run dev` | Starts the development server. |
-| `npm run build` | Builds the app for production (outputs to `dist`). |
-| `npm run preview` | Locally previews the production build. |
-| `npm run lint` | Runs ESLint to find and fix code issues. |
-| `npm test` | Runs tests using Vitest. |
-
----
 
 ## 📂 Project Structure
 
