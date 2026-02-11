@@ -3,6 +3,9 @@ import { Droplets, AlertTriangle, TrendingUp, Activity } from "lucide-react";
 import { AreaChart, Area, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer } from "recharts";
 import { motion } from "framer-motion";
 
+const { lang } = useLanguage();
+const t = translations[lang] || translations.en;
+
 const chartData = [
   { month: "Jan", efficiency: 82 }, { month: "Feb", efficiency: 85 },
   { month: "Mar", efficiency: 83 }, { month: "Apr", efficiency: 88 },
