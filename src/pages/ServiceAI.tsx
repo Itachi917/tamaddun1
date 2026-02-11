@@ -7,6 +7,9 @@ import { Send, Bot, User } from "lucide-react";
 import { useState } from "react";
 import { motion } from "framer-motion";
 
+const { lang } = useLanguage();
+const t = translations[lang] || translations.en;
+
 // --- 1. The Animated Thinking Indicator Component ---
 const ThinkingIndicator = () => (
   <div className="flex gap-1.5 p-3 rounded-lg bg-muted w-max">
