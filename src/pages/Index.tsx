@@ -18,8 +18,7 @@ const services = [
     icon: Droplets,
     title: "Water Management",
     color: "water",
-    // Updated to use primary (Yellow) and accent (Maroon)
-    gradient: "from-primary to-accent", 
+    gradient: "from-primary to-accent",
     features: [
       "Smart distribution across cities & neighborhoods",
       "Leak detection & water loss reduction",
@@ -43,7 +42,7 @@ const services = [
     icon: HardHat,
     title: "Construction Intelligence",
     color: "construction",
-    gradient: "from-accent to-red-900", // Maroon shades
+    gradient: "from-accent to-red-900",
     features: [
       "Drone-based land surveying",
       "Soil type & buildability assessment",
@@ -67,18 +66,15 @@ const Index = () => {
       <nav className="fixed top-0 left-0 right-0 z-50 border-b border-border/50 bg-background/80 backdrop-blur-xl">
         <div className="container mx-auto flex h-16 items-center justify-between px-4">
           <Link to="/" className="flex items-center gap-2">
-            {/* --- LOGO IMAGE --- */}
-            {/* Navbar Logo Section */}
-            <Link to="/" className="flex items-center gap-2">
-              <div className="flex h-8 w-8 shrink-0 items-center justify-center overflow-hidden rounded-lg">
-                <img 
-                  src="/logo.png" 
-                  alt="Tamaddun Logo" 
-                  className="h-full w-full object-contain" 
-                />
-              </div>
-              <span className="font-display text-xl font-bold">Tamaddun</span>
-            </Link>
+            <div className="flex h-8 w-8 shrink-0 items-center justify-center overflow-hidden rounded-lg">
+              <img 
+                src="/logo.png" 
+                alt="Tamaddun Logo" 
+                className="h-full w-full object-contain" 
+              />
+            </div>
+            <span className="font-display text-xl font-bold">Tamaddun</span>
+          </Link>
           <div className="hidden items-center gap-8 md:flex">
             <a href="#services" className="text-sm text-muted-foreground transition-colors hover:text-foreground">Services</a>
             <a href="#how-it-works" className="text-sm text-muted-foreground transition-colors hover:text-foreground">How It Works</a>
@@ -90,17 +86,15 @@ const Index = () => {
         </div>
       </nav>
 
-      {/* Hero */}
+      {/* Hero Section */}
       <section className="relative flex min-h-[90vh] items-center justify-center overflow-hidden pt-16"
         style={{ background: "var(--gradient-hero)" }}>
-        {/* Grid pattern updated to use primary color (Yellow) opacity */}
         <div className="absolute inset-0 opacity-10"
           style={{
             backgroundImage: `linear-gradient(hsl(var(--primary)) 1px, transparent 1px), linear-gradient(90deg, hsl(var(--primary)) 1px, transparent 1px)`,
             backgroundSize: "60px 60px",
           }}
         />
-        {/* Glow effects */}
         <div className="absolute top-1/4 left-1/4 h-96 w-96 rounded-full bg-primary/10 blur-[120px] animate-grid-pulse" />
         <div className="absolute bottom-1/4 right-1/4 h-72 w-72 rounded-full bg-accent/10 blur-[100px] animate-grid-pulse" style={{ animationDelay: "2s" }} />
 
@@ -138,7 +132,7 @@ const Index = () => {
         </div>
       </section>
 
-      {/* Services */}
+      {/* Services Section */}
       <section id="services" className="py-24 bg-background">
         <div className="container mx-auto px-4">
           <motion.div className="mb-16 text-center" initial="hidden" whileInView="visible" viewport={{ once: true }} variants={fadeUp} custom={0}>
@@ -173,106 +167,20 @@ const Index = () => {
         </div>
       </section>
 
-      {/* How It Works */}
-      <section id="how-it-works" className="border-y border-border/50 bg-muted/10 py-24">
-        <div className="container mx-auto px-4">
-          <motion.div className="mb-16 text-center" initial="hidden" whileInView="visible" viewport={{ once: true }} variants={fadeUp} custom={0}>
-            <h2 className="mb-4 font-display text-4xl font-bold md:text-5xl text-white">How It Works</h2>
-            <p className="mx-auto max-w-2xl text-lg text-muted-foreground">
-              From data collection to actionable insights in four simple steps.
-            </p>
-          </motion.div>
-          <div className="grid gap-8 sm:grid-cols-2 lg:grid-cols-4">
-            {steps.map((step, i) => (
-              <motion.div key={step.title} className="relative text-center" initial="hidden" whileInView="visible" viewport={{ once: true }} variants={fadeUp} custom={i + 1}>
-                <div className="mx-auto mb-4 flex h-16 w-16 items-center justify-center rounded-2xl bg-primary/10">
-                  <step.icon className="h-7 w-7 text-primary" />
-                </div>
-                <div className="mb-2 font-display text-sm font-semibold text-primary">Step {i + 1}</div>
-                <h3 className="mb-2 font-display text-xl font-bold text-white">{step.title}</h3>
-                <p className="text-sm text-muted-foreground">{step.desc}</p>
-                {i < steps.length - 1 && (
-                  <ArrowRight className="absolute -right-4 top-8 hidden h-5 w-5 text-muted-foreground/40 lg:block" />
-                )}
-              </motion.div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* AI Hub Preview */}
-      <section id="ai-hub" className="py-24 bg-background">
-        <div className="container mx-auto px-4">
-          <div className="grid items-center gap-12 lg:grid-cols-2">
-            <motion.div initial="hidden" whileInView="visible" viewport={{ once: true }} variants={fadeUp} custom={0}>
-              <span className="mb-4 inline-block rounded-full bg-primary/10 px-4 py-1.5 text-sm font-medium text-primary">
-                AI-Powered
-              </span>
-              <h2 className="mb-4 font-display text-4xl font-bold md:text-5xl text-white">City Intelligence Hub</h2>
-              <p className="mb-6 text-lg text-muted-foreground">
-                Ask questions about any infrastructure issue in your city. Our AI assistant provides real-time insights, diagnostics, and recommendations.
-              </p>
-              <Button asChild size="lg">
-                <Link to="/dashboard/chat">Try the AI Hub <Bot className="ml-2 h-4 w-4" /></Link>
-              </Button>
-            </motion.div>
-            <motion.div initial="hidden" whileInView="visible" viewport={{ once: true }} variants={fadeUp} custom={1}>
-              <Card className="overflow-hidden border-border/50 shadow-2xl bg-card">
-                <div className="flex items-center gap-2 border-b border-border/50 bg-muted/30 px-4 py-3">
-                  <Bot className="h-5 w-5 text-primary" />
-                  <span className="font-display text-sm font-semibold text-white">City Intelligence Hub</span>
-                  <div className="ml-auto flex gap-1">
-                    <div className="h-2.5 w-2.5 rounded-full bg-green-500 animate-pulse" />
-                    <span className="text-xs text-muted-foreground">Online</span>
-                  </div>
-                </div>
-                <CardContent className="space-y-4 p-4">
-                  <div className="flex gap-3">
-                    <div className="flex h-8 w-8 shrink-0 items-center justify-center rounded-full bg-primary/10">
-                      <Bot className="h-4 w-4 text-primary" />
-                    </div>
-                    <div className="rounded-xl rounded-tl-none bg-muted/50 px-4 py-2.5 text-sm text-white border border-border/50">
-                      Welcome to Tamaddun! How can I help with your city's infrastructure today?
-                    </div>
-                  </div>
-                  <div className="flex justify-end gap-3">
-                    <div className="rounded-xl rounded-tr-none bg-primary px-4 py-2.5 text-sm text-primary-foreground font-medium">
-                      There's a water leak in District 7. Can you check?
-                    </div>
-                  </div>
-                  <div className="flex gap-3">
-                    <div className="flex h-8 w-8 shrink-0 items-center justify-center rounded-full bg-primary/10">
-                      <Bot className="h-4 w-4 text-primary" />
-                    </div>
-                    <div className="rounded-xl rounded-tl-none bg-muted/50 px-4 py-2.5 text-sm text-white border border-border/50">
-                      <p className="font-medium text-primary">🔍 Leak Detected — District 7, Zone B3</p>
-                      <p className="mt-1 text-muted-foreground">Pressure drop of 15% detected. Maintenance crew dispatched. ETA: 45 minutes.</p>
-                    </div>
-                  </div>
-                </CardContent>
-              </Card>
-            </motion.div>
-          </div>
-        </div>
-      </section>
-
       {/* Footer */}
       <footer className="border-t border-border/50 bg-muted/10 py-12">
         <div className="container mx-auto px-4">
           <div className="flex flex-col items-center justify-between gap-6 md:flex-row">
             <div className="flex items-center gap-2">
-              {/* --- FOOTER LOGO IMAGE --- */}
-              {/* Footer Logo Section */}
-              <div className="flex items-center gap-2">
-                <div className="flex h-8 w-8 shrink-0 items-center justify-center overflow-hidden rounded-lg">
-                  <img 
-                    src="/logo.png" 
-                    alt="Tamaddun Logo" 
-                    className="h-full w-full object-contain" 
-                  />
-                </div>
-                <span className="font-display text-lg font-bold">Tamaddun</span>
+              <div className="flex h-8 w-8 shrink-0 items-center justify-center overflow-hidden rounded-lg">
+                <img 
+                  src="/logo.png" 
+                  alt="Tamaddun Logo" 
+                  className="h-full w-full object-contain" 
+                />
               </div>
+              <span className="font-display text-lg font-bold text-white">Tamaddun</span>
+            </div>
             <p className="text-sm text-muted-foreground">© 2026 Tamaddun. Building Smarter Cities.</p>
           </div>
         </div>
