@@ -4,6 +4,9 @@ import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { motion } from "framer-motion";
 
+const { lang } = useLanguage();
+const t = translations[lang] || translations.en;
+
 const projects = [
   {
     name: "Al-Noor District",
