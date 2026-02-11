@@ -6,95 +6,76 @@
 
 @layer base {
   :root {
-    /* --- YOUR CUSTOM PALETTE --- */
+    /* --- LIGHT MODE (New High Contrast Theme) --- */
+    /* Background: Off-white */
+    --background: 0 0% 98%;
+    /* Text: Your Dark Grey #343248 */
+    --foreground: 245 18% 24%;
+
+    --card: 0 0% 100%;
+    --card-foreground: 245 18% 24%;
+
+    --popover: 0 0% 100%;
+    --popover-foreground: 245 18% 24%;
+
+    /* Primary: Deeper Gold (better visibility on white) */
+    --primary: 45 93% 45%; 
+    --primary-foreground: 0 0% 100%;
+
+    /* Secondary: Maroon */
+    --secondary: 345 68% 24%;
+    --secondary-foreground: 0 0% 100%;
+
+    --muted: 240 5% 90%;
+    --muted-foreground: 245 10% 40%;
+
+    --accent: 45 93% 94%; /* V. Light Yellow for hover states */
+    --accent-foreground: 345 68% 24%;
+
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 0 0% 98%;
+
+    --border: 240 6% 88%;
+    --input: 240 6% 88%;
+    --ring: 45 93% 45%;
+
+    --radius: 0.75rem;
+
+    /* Sidebar in Light Mode */
+    --sidebar-background: 0 0% 98%;
+    --sidebar-foreground: 245 18% 24%;
+    --sidebar-primary: 45 93% 45%;
+    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-accent: 240 5% 90%;
+    --sidebar-accent-foreground: 345 68% 24%;
+    --sidebar-border: 240 6% 90%;
+    --sidebar-ring: 45 93% 45%;
+
+    /* Gradients for Light Mode */
+    --gradient-hero: linear-gradient(135deg, hsl(0 0% 98%), hsl(240 5% 94%), hsl(45 93% 90%));
+  }
+
+  .dark {
+    /* --- DARK MODE (Your Default Brand Theme) --- */
     /* Background: Grey #343248 */
     --background: 245 18% 24%;
     /* Text: White */
     --foreground: 0 0% 100%;
 
-    /* Cards: Same Grey or slightly different for depth */
     --card: 245 18% 24%;
     --card-foreground: 0 0% 100%;
 
     --popover: 245 18% 24%;
     --popover-foreground: 0 0% 100%;
 
-    /* Primary (Action): Yellow #f7c021 */
+    /* Primary: Bright Yellow #f7c021 */
     --primary: 45 93% 55%;
-    /* Primary Text: Grey (to ensure the text is readable on yellow) */
     --primary-foreground: 245 18% 24%;
 
     /* Secondary: Maroon #651327 */
     --secondary: 345 68% 24%;
     --secondary-foreground: 0 0% 100%;
 
-    /* Muted elements: A slightly darker grey */
-    --muted: 245 15% 20%;
-    --muted-foreground: 220 10% 70%;
-
-    /* Accent: Maroon */
-    --accent: 345 68% 24%;
-    --accent-foreground: 0 0% 100%;
-
-    /* Destructive/Error: Maroon */
-    --destructive: 345 68% 24%;
-    --destructive-foreground: 0 0% 100%;
-
-    /* Borders: Maroon */
-    --border: 345 68% 24%;
-    --input: 345 68% 24%;
-    /* Ring (Focus outline): Yellow */
-    --ring: 45 93% 55%;
-
-    --radius: 0.75rem;
-
-    /* Sidebar: Grey */
-    --sidebar-background: 245 18% 24%;
-    --sidebar-foreground: 0 0% 100%;
-    --sidebar-primary: 45 93% 55%;
-    --sidebar-primary-foreground: 245 18% 24%;
-    --sidebar-accent: 345 68% 24%; /* Maroon hover effect */
-    --sidebar-accent-foreground: 0 0% 100%;
-    --sidebar-border: 345 68% 24%;
-    --sidebar-ring: 45 93% 55%;
-
-    /* Custom tokens - Adjusted slightly to fit the theme */
-    --water: 200 85% 50%;
-    --water-foreground: 0 0% 100%;
-    --electricity: 45 95% 55%;
-    --electricity-foreground: 245 18% 24%;
-    --construction: 28 90% 55%;
-    --construction-foreground: 0 0% 100%;
-    --ai-hub: 270 70% 55%;
-    --ai-hub-foreground: 0 0% 100%;
-
-    /* Gradients updated to use your Yellow/Grey/Maroon base */
-    --gradient-primary: linear-gradient(135deg, hsl(45 93% 55%), hsl(28 90% 55%)); /* Yellow to Orange */
-    --gradient-hero: linear-gradient(135deg, hsl(245 18% 24%), hsl(245 25% 15%), hsl(345 68% 20%)); /* Grey to Dark Maroon */
-    --gradient-water: linear-gradient(135deg, hsl(200 85% 50%), hsl(180 70% 45%));
-    --gradient-electricity: linear-gradient(135deg, hsl(45 95% 55%), hsl(28 90% 55%));
-    --gradient-construction: linear-gradient(135deg, hsl(28 90% 55%), hsl(15 80% 50%));
-    --gradient-ai: linear-gradient(135deg, hsl(270 70% 55%), hsl(45 93% 55%));
-  }
-
-  .dark {
-    /* Since your requested theme IS dark (Grey background), 
-       Dark mode just inherits the same values to keep it consistent. */
-    --background: 245 18% 24%;
-    --foreground: 0 0% 100%;
-
-    --card: 245 18% 24%;
-    --card-foreground: 0 0% 100%;
-
-    --popover: 245 18% 24%;
-    --popover-foreground: 0 0% 100%;
-
-    --primary: 45 93% 55%;
-    --primary-foreground: 245 18% 24%;
-
-    --secondary: 345 68% 24%;
-    --secondary-foreground: 0 0% 100%;
-
     --muted: 245 15% 20%;
     --muted-foreground: 220 10% 70%;
 
@@ -108,6 +89,7 @@
     --input: 345 68% 24%;
     --ring: 45 93% 55%;
 
+    /* Sidebar in Dark Mode */
     --sidebar-background: 245 18% 24%;
     --sidebar-foreground: 0 0% 100%;
     --sidebar-primary: 45 93% 55%;
@@ -116,6 +98,10 @@
     --sidebar-accent-foreground: 0 0% 100%;
     --sidebar-border: 345 68% 24%;
     --sidebar-ring: 45 93% 55%;
+
+    /* Gradients for Dark Mode */
+    --gradient-primary: linear-gradient(135deg, hsl(45 93% 55%), hsl(28 90% 55%));
+    --gradient-hero: linear-gradient(135deg, hsl(245 18% 24%), hsl(245 25% 15%), hsl(345 68% 20%));
   }
 }
 
@@ -123,18 +109,16 @@
   * {
     @apply border-border;
   }
-
   body {
     @apply bg-background text-foreground font-sans;
     font-family: 'Inter', sans-serif;
   }
-
   h1, h2, h3, h4, h5, h6 {
-    font-family: 'Space Grotesk', sans-serif;
+    @apply font-display font-bold;
   }
 }
 
-/* Grid animation for hero */
+/* Keep your existing animations below */
 @keyframes grid-pulse {
   0%, 100% { opacity: 0.3; }
   50% { opacity: 0.6; }
