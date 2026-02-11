@@ -3,6 +3,9 @@ import { Zap, AlertTriangle, TrendingUp, Activity, Leaf } from "lucide-react";
 import { BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer, Cell } from "recharts";
 import { motion } from "framer-motion";
 
+const { lang } = useLanguage();
+const t = translations[lang] || translations.en;
+
 const chartData = [
   { zone: "Zone A", load: 78, loss: 4 },
   { zone: "Zone B", load: 92, loss: 6 },
