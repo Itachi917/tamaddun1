@@ -12,12 +12,16 @@ import {
   SidebarHeader,
 } from "@/components/ui/sidebar";
 
-const navItems = [
+const staffItems = [
   { title: "Overview", url: "/dashboard", icon: LayoutDashboard },
-  { title: "Water", url: "/dashboard/water", icon: Droplets },
-  { title: "Electricity", url: "/dashboard/electricity", icon: Zap },
-  { title: "Construction", url: "/dashboard/construction", icon: HardHat },
-  { title: "AI Hub", url: "/dashboard/chat", icon: Bot },
+  { title: "Water System", url: "/dashboard/staff/water", icon: Droplets },
+  { title: "Electricity", url: "/dashboard/staff/electricity", icon: Zap },
+  { title: "Construction", url: "/dashboard/staff/construction", icon: HardHat },
+  { title: "Staff Chat", url: "/dashboard/staff/chat", icon: MessageSquare },
+];
+
+const customerItems = [
+  { title: "Service Portal", url: "/dashboard/customer", icon: Store },
 ];
 
 export function DashboardSidebar() {
