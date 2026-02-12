@@ -13,6 +13,22 @@ export const translations = {
       construction: "Construction", chat: "Staff Chat", servicePortal: "Service Portal",
       backHome: "Back to Home", settings: "Settings"
     },
+    // --- HOME PAGE SECTIONS ---
+    howItWorks: {
+      title: "How It Works",
+      steps: [
+        { title: "Select Service", desc: "Choose Water, Electricity, or Construction" },
+        { title: "Input Data", desc: "Provide location and project details" },
+        { title: "Get AI Insights", desc: "Receive intelligent analysis & predictions" },
+        { title: "Take Action", desc: "Implement optimized solutions" }
+      ]
+    },
+    aiHub: {
+      badge: "AI-Powered",
+      title: "City Intelligence Hub",
+      desc: "Ask questions about any infrastructure issue in your city. Our AI assistant provides real-time insights."
+    },
+    // --- DASHBOARD & TOOLS ---
     dashboard: {
       title: "Dashboard Overview",
       subtitle: "Welcome back. Here's your city infrastructure status.",
@@ -92,6 +108,22 @@ export const translations = {
       construction: "الإنشاءات", chat: "دردشة الموظفين", servicePortal: "بوابة الخدمات",
       backHome: "العودة للرئيسية", settings: "الإعدادات"
     },
+    // --- HOME PAGE SECTIONS ---
+    howItWorks: {
+      title: "كيف نعمل",
+      steps: [
+        { title: "اختر الخدمة", desc: "اختر المياه أو الكهرباء أو الإنشاءات" },
+        { title: "إدخال البيانات", desc: "تقديم تفاصيل الموقع والمشروع" },
+        { title: "الحصول على رؤى", desc: "تلقي تحليلات وتوقعات ذكية" },
+        { title: "اتخاذ الإجراء", desc: "تنفيذ الحلول المحسنة" }
+      ]
+    },
+    aiHub: {
+      badge: "مدعوم بالذكاء الاصطناعي",
+      title: "مركز ذكاء المدينة",
+      desc: "اطرح أسئلة حول أي قضية بنية تحتية في مدينتك. يوفر مساعدنا رؤى فورية."
+    },
+    // --- DASHBOARD & TOOLS ---
     dashboard: {
       title: "نظرة عامة على لوحة التحكم",
       subtitle: "مرحباً بك مجدداً. إليك حالة البنية التحتية للمدينة.",
