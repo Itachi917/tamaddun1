@@ -23,7 +23,6 @@ const ThinkingIndicator = () => (
 );
 
 export default function ServiceAI() {
-  // --- HOOKS GO HERE (INSIDE) ---
   const { lang } = useLanguage();
   const t = translations[lang] || translations.en;
   const { service } = useParams();
