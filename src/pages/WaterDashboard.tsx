@@ -6,15 +6,12 @@ import { useLanguage } from "@/components/language-provider";
 import { translations } from "@/lib/translations";
 
 const WaterDashboard = () => {
-  // --- HOOKS MUST BE INSIDE HERE ---
   const { lang } = useLanguage();
   const t = translations[lang] || translations.en;
 
   const chartData = [
     { month: "Jan", efficiency: 82 }, { month: "Feb", efficiency: 85 },
     { month: "Mar", efficiency: 83 }, { month: "Apr", efficiency: 88 },
-    { month: "May", efficiency: 91 }, { month: "Jun", efficiency: 93 },
-    { month: "Jul", efficiency: 90 }, { month: "Aug", efficiency: 94 },
   ];
 
   const stats = [
