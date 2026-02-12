@@ -1,25 +1,12 @@
 import { 
-  Droplets, 
-  Zap, 
-  HardHat, 
-  LayoutDashboard, 
-  Home, 
-  MessageSquare, 
-  Store 
+  Droplets, Zap, HardHat, LayoutDashboard, Home, MessageSquare, Store 
 } from "lucide-react";
 import { NavLink } from "@/components/NavLink";
 import { useLanguage } from "@/components/language-provider";
 import { translations } from "@/lib/translations";
 import {
-  Sidebar,
-  SidebarContent,
-  SidebarGroup,
-  SidebarGroupContent,
-  SidebarGroupLabel,
-  SidebarMenu,
-  SidebarMenuButton,
-  SidebarMenuItem,
-  SidebarHeader,
+  Sidebar, SidebarContent, SidebarGroup, SidebarGroupContent, SidebarGroupLabel,
+  SidebarMenu, SidebarMenuButton, SidebarMenuItem, SidebarHeader,
 } from "@/components/ui/sidebar";
 
 export function DashboardSidebar() {
@@ -42,11 +29,7 @@ export function DashboardSidebar() {
     <Sidebar collapsible="icon">
       <SidebarHeader className="p-4">
         <NavLink to="/" className="flex items-center gap-2">
-          <img 
-            src="/logo.png" 
-            alt="Tamaddun Logo" 
-            className="h-8 w-8 shrink-0 rounded-lg object-contain" 
-          />
+          <img src="/logo.png" alt="Tamaddun Logo" className="h-8 w-8 shrink-0 rounded-lg object-contain" />
           <span className="font-display text-lg font-bold text-sidebar-foreground group-data-[collapsible=icon]:hidden">
             Tamaddun
           </span>
@@ -54,7 +37,6 @@ export function DashboardSidebar() {
       </SidebarHeader>
 
       <SidebarContent>
-        {/* --- GROUP 1: STAFF PORTAL --- */}
         <SidebarGroup>
           <SidebarGroupLabel>{t.sidebar.staffLabel}</SidebarGroupLabel>
           <SidebarGroupContent>
@@ -62,12 +44,7 @@ export function DashboardSidebar() {
               {staffItems.map((item) => (
                 <SidebarMenuItem key={item.title}>
                   <SidebarMenuButton asChild tooltip={item.title}>
-                    <NavLink
-                      to={item.url}
-                      end={item.url === "/dashboard"}
-                      className="hover:bg-sidebar-accent flex items-center gap-2"
-                      activeClassName="bg-sidebar-accent text-sidebar-primary font-medium"
-                    >
+                    <NavLink to={item.url} end={item.url === "/dashboard"} className="hover:bg-sidebar-accent flex items-center gap-2" activeClassName="bg-sidebar-accent text-sidebar-primary font-medium">
                       <item.icon className="h-4 w-4" />
                       <span>{item.title}</span>
                     </NavLink>
@@ -78,7 +55,6 @@ export function DashboardSidebar() {
           </SidebarGroupContent>
         </SidebarGroup>
 
-        {/* --- GROUP 2: CUSTOMER PORTAL --- */}
         <SidebarGroup>
           <SidebarGroupLabel>{t.sidebar.customerLabel}</SidebarGroupLabel>
           <SidebarGroupContent>
@@ -86,11 +62,7 @@ export function DashboardSidebar() {
               {customerItems.map((item) => (
                 <SidebarMenuItem key={item.title}>
                   <SidebarMenuButton asChild tooltip={item.title}>
-                    <NavLink
-                      to={item.url}
-                      className="hover:bg-sidebar-accent flex items-center gap-2"
-                      activeClassName="bg-sidebar-accent text-sidebar-primary font-medium"
-                    >
+                    <NavLink to={item.url} className="hover:bg-sidebar-accent flex items-center gap-2" activeClassName="bg-sidebar-accent text-sidebar-primary font-medium">
                       <item.icon className="h-4 w-4" />
                       <span>{item.title}</span>
                     </NavLink>
@@ -101,7 +73,6 @@ export function DashboardSidebar() {
           </SidebarGroupContent>
         </SidebarGroup>
 
-        {/* --- BOTTOM GROUP: HOME LINK --- */}
         <SidebarGroup className="mt-auto">
           <SidebarGroupContent>
             <SidebarMenu>
