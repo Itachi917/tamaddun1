@@ -2,7 +2,7 @@ import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { motion } from "framer-motion";
-import { Droplets, Zap, HardHat, ArrowRight, ChevronRight } from "lucide-react";
+import { Droplets, Zap, HardHat, ArrowRight, ChevronRight, Bot } from "lucide-react";
 import { LanguageToggle } from "@/components/language-toggle";
 import { useLanguage } from "@/components/language-provider";
 import { translations } from "@/lib/translations";
@@ -28,6 +28,7 @@ const Index = () => {
 
   return (
     <div className="min-h-screen bg-background text-foreground">
+      {/* Navbar */}
       <nav className="fixed top-0 left-0 right-0 z-50 border-b border-border/50 bg-background/80 backdrop-blur-xl">
         <div className="container mx-auto flex h-16 items-center justify-between px-4">
           <Link to="/" className="flex items-center gap-2">
@@ -36,11 +37,13 @@ const Index = () => {
             </div>
             <span className="font-display text-xl font-bold">Tamaddun</span>
           </Link>
+          
           <div className="hidden items-center gap-8 md:flex">
             <a href="#services" className="text-sm text-muted-foreground transition-colors hover:text-foreground">{t.nav.services}</a>
             <a href="#how-it-works" className="text-sm text-muted-foreground transition-colors hover:text-foreground">{t.nav.howItWorks}</a>
             <a href="#ai-hub" className="text-sm text-muted-foreground transition-colors hover:text-foreground">{t.nav.aiHub}</a>
           </div>
+
           <div className="flex items-center gap-4">
             <LanguageToggle />
             <Button asChild>
@@ -52,7 +55,15 @@ const Index = () => {
         </div>
       </nav>
 
-      <section className="relative flex min-h-[90vh] items-center justify-center overflow-hidden pt-16" style={{ background: "var(--gradient-hero)" }}>
+      {/* Hero Section */}
+      <section className="relative flex min-h-[90vh] items-center justify-center overflow-hidden pt-16"
+        style={{ background: "var(--gradient-hero)" }}>
+        <div className="absolute inset-0 opacity-[0.15]"
+          style={{
+            backgroundImage: `linear-gradient(hsl(var(--foreground)) 1px, transparent 1px), linear-gradient(90deg, hsl(var(--foreground)) 1px, transparent 1px)`,
+            backgroundSize: "60px 60px",
+          }}
+        />
         <div className="container relative z-10 mx-auto px-4 text-center">
           <motion.div initial="hidden" animate="visible" variants={fadeUp} custom={0}>
             <span className="mb-4 inline-block rounded-full border border-primary/30 bg-primary/10 px-4 py-1.5 text-sm font-medium text-primary">
@@ -70,6 +81,7 @@ const Index = () => {
         </div>
       </section>
 
+      {/* Services Section */}
       <section id="services" className="py-24 bg-background">
         <div className="container mx-auto px-4 text-center">
           <motion.div className="mb-16" initial="hidden" whileInView="visible" viewport={{ once: true }} variants={fadeUp} custom={0}>
@@ -77,7 +89,7 @@ const Index = () => {
           </motion.div>
           <div className="grid gap-8 md:grid-cols-3">
             {services.map((service, i) => (
-              <motion.div key={i} initial="hidden" whileInView="visible" viewport={{ once: true }} variants={fadeUp} custom={i + 1}>
+              <motion.div key={service.title} initial="hidden" whileInView="visible" viewport={{ once: true }} variants={fadeUp} custom={i + 1}>
                 <Card className="group relative overflow-hidden border-border/50 bg-card/50 backdrop-blur-sm transition-all duration-300 hover:shadow-2xl hover:-translate-y-1">
                   <div className={`absolute inset-x-0 top-0 h-1 bg-gradient-to-r ${service.gradient}`} />
                   <CardContent className="p-8 text-start">
@@ -101,6 +113,41 @@ const Index = () => {
         </div>
       </section>
 
+      {/* AI Hub Section - Fixed Link */}
+      <section id="ai-hub" className="py-24 border-t border-border/50 bg-muted/10">
+        <div className="container mx-auto px-4 text-center lg:text-start grid lg:grid-cols-2 gap-12 items-center">
+          <div>
+            <span className="mb-4 inline-block rounded-full bg-primary/10 px-4 py-1.5 text-sm font-medium text-primary">{t.aiHub.badge}</span>
+            <h2 className="mb-4 text-4xl font-bold text-white">{t.aiHub.title}</h2>
+            <p className="mb-6 text-lg text-muted-foreground">{t.aiHub.desc}</p>
+            {/* FIXED LINK HERE: was /dashboard/chat, now /dashboard/staff/chat */}
+            <Button asChild size="lg">
+              <Link to="/dashboard/staff/chat">
+                {t.aiChat.button} <Bot className="ms-2 h-4 w-4 rtl:rotate-180" />
+              </Link>
+            </Button>
+          </div>
+          <div className="relative flex justify-center">
+            <div className="absolute inset-0 bg-primary/20 blur-3xl rounded-full" />
+             <div className="relative bg-card/50 border border-border/50 rounded-2xl p-6 backdrop-blur-md max-w-md w-full">
+               <div className="flex items-start gap-4 mb-4">
+                 <div className="w-10 h-10 rounded-full bg-primary/20 flex items-center justify-center">
+                   <Bot className="h-6 w-6 text-primary" />
+                 </div>
+                 <div className="bg-muted p-3 rounded-lg rounded-tl-none text-sm text-start">
+                   {t.aiChat.welcome}
+                 </div>
+               </div>
+                <div className="flex items-center gap-2">
+                  <div className="h-2 w-2 rounded-full bg-green-500 animate-pulse" />
+                  <span className="text-xs text-muted-foreground">System Online</span>
+                </div>
+             </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Footer */}
       <footer className="border-t border-border/50 bg-muted/10 py-12">
         <div className="container mx-auto px-4 text-center md:text-start">
           <div className="flex flex-col items-center justify-between gap-6 md:flex-row">
