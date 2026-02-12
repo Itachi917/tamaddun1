@@ -15,10 +15,16 @@ const DashboardOverview = () => {
   const t = translations[lang] || translations.en;
 
   const stats = [
-    { title: t.dashboard.stats.water, value: "24", icon: Droplets, color: "text-blue-500", bg: "bg-blue-500/10", link: "/dashboard/staff/water" },
-    { title: t.dashboard.stats.grid, value: "98.2%", icon: Zap, color: "text-yellow-500", bg: "bg-yellow-500/10", link: "/dashboard/staff/electricity" },
-    { title: t.dashboard.stats.projects, value: "12", icon: HardHat, color: "text-orange-500", bg: "bg-orange-500/10", link: "/dashboard/staff/construction" },
-    { title: t.dashboard.stats.ai, value: "156", icon: Bot, color: "text-primary", bg: "bg-primary/10", link: "/dashboard/staff/chat" },
+    { title: t.dashboard.stats.water, value: "24", icon: Droplets, color: "text-water", bg: "bg-water/10", link: "/dashboard/staff/water" },
+    { title: t.dashboard.stats.grid, value: "98.2%", icon: Zap, color: "text-electricity", bg: "bg-electricity/10", link: "/dashboard/staff/electricity" },
+    { title: t.dashboard.stats.projects, value: "12", icon: HardHat, color: "text-construction", bg: "bg-construction/10", link: "/dashboard/staff/construction" },
+    { title: t.dashboard.stats.ai, value: "156", icon: Bot, color: "text-ai-hub", bg: "bg-ai-hub/10", link: "/dashboard/staff/chat" },
+  ];
+
+  const alerts = [
+    { type: "warning", message: t.dashboard.alertMsgs.pressure, time: lang === 'ar' ? "منذ ١٢ دقيقة" : "12 min ago", service: t.sidebar.water },
+    { type: "success", message: t.dashboard.alertMsgs.renewable, time: lang === 'ar' ? "منذ ساعة" : "1 hr ago", service: t.sidebar.electricity },
+    { type: "warning", message: t.dashboard.alertMsgs.soil, time: lang === 'ar' ? "منذ ٣ ساعات" : "3 hrs ago", service: t.sidebar.construction },
   ];
 
   return (
@@ -51,16 +57,24 @@ const DashboardOverview = () => {
       <Card className="bg-card/50 backdrop-blur-sm border-border/50">
         <CardHeader>
           <CardTitle className="flex items-center gap-2 font-display text-start">
-            <AlertTriangle className="h-5 w-5 text-yellow-500" /> {t.dashboard.alertsTitle}
+            <AlertTriangle className="h-5 w-5 text-accent" /> {t.dashboard.alertsTitle}
           </CardTitle>
         </CardHeader>
-        <CardContent className="space-y-4">
-          <div className="flex items-start gap-3 rounded-lg border border-border/50 p-4 text-start">
-            <AlertTriangle className="mt-0.5 h-5 w-5 shrink-0 text-yellow-500" />
-            <div className="flex-1">
-              <p className="text-sm font-medium">{t.dashboard.alertMsgs.pressure}</p>
-              <p className="text-xs text-muted-foreground">12 min ago</p>
-            </div>
+        <CardContent>
+          <div className="space-y-4">
+            {alerts.map((alert, i) => (
+              <div key={i} className="flex items-start gap-3 rounded-lg border border-border/50 p-4 bg-background/50 text-start">
+                {alert.type === "warning" ? (
+                  <AlertTriangle className="mt-0.5 h-5 w-5 shrink-0 text-accent" />
+                ) : (
+                  <CheckCircle className="mt-0.5 h-5 w-5 shrink-0 text-secondary" />
+                )}
+                <div className="flex-1">
+                  <p className="text-sm font-medium">{alert.message}</p>
+                  <p className="text-xs text-muted-foreground">{alert.service} · {alert.time}</p>
+                </div>
+              </div>
+            ))}
           </div>
         </CardContent>
       </Card>
