@@ -1,11 +1,8 @@
 import { Outlet } from "react-router-dom";
 import { SidebarProvider, SidebarTrigger } from "@/components/ui/sidebar";
 import { DashboardSidebar } from "@/components/DashboardSidebar";
-import { useLanguage } from "@/components/language-provider";
-
+// We don't need translations here, just the provider wrap
 const Dashboard = () => {
-  const { lang } = useLanguage(); // Correct placement
-
   return (
     <SidebarProvider>
       <div className="flex min-h-screen w-full">
