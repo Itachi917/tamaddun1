@@ -1,7 +1,6 @@
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
-import { Zap, AlertTriangle, TrendingUp, Activity, Leaf } from "lucide-react";
+import { Zap, Activity, Leaf, TrendingUp } from "lucide-react";
 import { BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer } from "recharts";
-import { motion } from "framer-motion";
 import { useLanguage } from "@/components/language-provider";
 import { translations } from "@/lib/translations";
 
