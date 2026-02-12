@@ -28,7 +28,6 @@ const ChatHub = () => {
     if (!text.trim()) return;
     const userMsg: Message = { role: "user", text };
     
-    // Logic to find translated response based on question match
     let botText = t.aiChat.responses.fallback;
     if (text === t.aiChat.questions.water) botText = t.aiChat.responses.water;
     if (text === t.aiChat.questions.electricity) botText = t.aiChat.responses.electricity;
@@ -43,7 +42,7 @@ const ChatHub = () => {
     <div className="flex h-[calc(100vh-5rem)] flex-col space-y-4">
       <div className="text-start">
         <h1 className="font-display text-3xl font-bold flex items-center gap-3">
-          <Bot className="h-8 w-8 text-primary" /> {t.aiChat.title}
+          <Bot className="h-8 w-8 text-primary" /> {t.sidebar.chat}
         </h1>
         <p className="text-muted-foreground">{t.aiChat.subtitle}</p>
       </div>
