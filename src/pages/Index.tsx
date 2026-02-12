@@ -2,9 +2,9 @@ import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { motion } from "framer-motion";
-import { Droplets, Zap, HardHat, Bot, ArrowRight, Settings, BarChart3, Eye, Send, ChevronRight } from "lucide-react";
+import { Droplets, Zap, HardHat, ArrowRight, ChevronRight } from "lucide-react";
 import { LanguageToggle } from "@/components/language-toggle";
-import { useLanguage } from "@/components/language-provider"; // Using the hook
+import { useLanguage } from "@/components/language-provider";
 import { translations } from "@/lib/translations";
 
 const fadeUp = {
@@ -21,29 +21,13 @@ const Index = () => {
   const t = translations[lang] || translations.en;
 
   const services = [
-    {
-      icon: Droplets,
-      title: t.services.water.title,
-      gradient: "from-primary to-accent",
-      features: t.services.water.features,
-    },
-    {
-      icon: Zap,
-      title: t.services.electricity.title,
-      gradient: "from-primary to-orange-500",
-      features: t.services.electricity.features,
-    },
-    {
-      icon: HardHat,
-      title: t.services.construction.title,
-      gradient: "from-accent to-red-900",
-      features: t.services.construction.features,
-    },
+    { icon: Droplets, title: t.water.title, gradient: "from-primary to-accent", features: t.water.features },
+    { icon: Zap, title: t.electricity.title, gradient: "from-primary to-orange-500", features: t.electricity.features },
+    { icon: HardHat, title: t.construction.title, gradient: "from-accent to-red-900", features: t.construction.features },
   ];
 
   return (
     <div className="min-h-screen bg-background text-foreground">
-      {/* Navbar */}
       <nav className="fixed top-0 left-0 right-0 z-50 border-b border-border/50 bg-background/80 backdrop-blur-xl">
         <div className="container mx-auto flex h-16 items-center justify-between px-4">
           <Link to="/" className="flex items-center gap-2">
@@ -52,13 +36,11 @@ const Index = () => {
             </div>
             <span className="font-display text-xl font-bold">Tamaddun</span>
           </Link>
-          
           <div className="hidden items-center gap-8 md:flex">
             <a href="#services" className="text-sm text-muted-foreground transition-colors hover:text-foreground">{t.nav.services}</a>
             <a href="#how-it-works" className="text-sm text-muted-foreground transition-colors hover:text-foreground">{t.nav.howItWorks}</a>
             <a href="#ai-hub" className="text-sm text-muted-foreground transition-colors hover:text-foreground">{t.nav.aiHub}</a>
           </div>
-
           <div className="flex items-center gap-4">
             <LanguageToggle />
             <Button asChild>
@@ -70,15 +52,7 @@ const Index = () => {
         </div>
       </nav>
 
-      {/* Hero Section */}
-      <section className="relative flex min-h-[90vh] items-center justify-center overflow-hidden pt-16"
-        style={{ background: "var(--gradient-hero)" }}>
-        <div className="absolute inset-0 opacity-[0.15]"
-          style={{
-            backgroundImage: `linear-gradient(hsl(var(--foreground)) 1px, transparent 1px), linear-gradient(90deg, hsl(var(--foreground)) 1px, transparent 1px)`,
-            backgroundSize: "60px 60px",
-          }}
-        />
+      <section className="relative flex min-h-[90vh] items-center justify-center overflow-hidden pt-16" style={{ background: "var(--gradient-hero)" }}>
         <div className="container relative z-10 mx-auto px-4 text-center">
           <motion.div initial="hidden" animate="visible" variants={fadeUp} custom={0}>
             <span className="mb-4 inline-block rounded-full border border-primary/30 bg-primary/10 px-4 py-1.5 text-sm font-medium text-primary">
@@ -96,7 +70,6 @@ const Index = () => {
         </div>
       </section>
 
-      {/* Services Section */}
       <section id="services" className="py-24 bg-background">
         <div className="container mx-auto px-4 text-center">
           <motion.div className="mb-16" initial="hidden" whileInView="visible" viewport={{ once: true }} variants={fadeUp} custom={0}>
@@ -104,7 +77,7 @@ const Index = () => {
           </motion.div>
           <div className="grid gap-8 md:grid-cols-3">
             {services.map((service, i) => (
-              <motion.div key={service.title} initial="hidden" whileInView="visible" viewport={{ once: true }} variants={fadeUp} custom={i + 1}>
+              <motion.div key={i} initial="hidden" whileInView="visible" viewport={{ once: true }} variants={fadeUp} custom={i + 1}>
                 <Card className="group relative overflow-hidden border-border/50 bg-card/50 backdrop-blur-sm transition-all duration-300 hover:shadow-2xl hover:-translate-y-1">
                   <div className={`absolute inset-x-0 top-0 h-1 bg-gradient-to-r ${service.gradient}`} />
                   <CardContent className="p-8 text-start">
@@ -128,7 +101,6 @@ const Index = () => {
         </div>
       </section>
 
-      {/* Footer */}
       <footer className="border-t border-border/50 bg-muted/10 py-12">
         <div className="container mx-auto px-4 text-center md:text-start">
           <div className="flex flex-col items-center justify-between gap-6 md:flex-row">
